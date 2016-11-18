@@ -35,8 +35,8 @@ async def on_message(message):
         szcz = ['szczur', 'szczupak', 'chrząszcz', 'szczecin', 'szczebrzeszyn', 'szczerość', 'szczekać', 'szczęka', "pszczoła", 'oszczędzać', 'płaszcz', 'szczegóły', 'puszcza', 'paszcza', 'chińszczyzna', 'polszczyzna', 'barszcz', 'szczeniak', 'szczep', 'szczyt']
         await client.send_message(message.channel, random.choice(szcz))
     elif message.content.startswith ('{smug'):
-        smug = ['/smug/1.png', '/smug/2.png', '/smug/3.png']
-        await client.send_file(message.channel, dr + random.choice(smug))
+        smug = os.listdir(dr + "\\smug")
+        await client.send_file(message.channel, dr + '\\smug\\' + random.choice(smug))
 
 
 client.run('MjQ4ODc4MTY5NzA3MjQ5Njc0.Cw-J2w.e8ebHynG1fd3WnCV8JSn5O6CPBs')
