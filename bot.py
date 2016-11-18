@@ -26,9 +26,9 @@ async def on_message(message):
         await client.edit_message(tmp, 'you have {} messages'.format(counter))
     elif message.content.startswith ('{help'):
         await client.send_message(message.channel, 'commands: `{test`, `{sleep`, `{lmdo`, `{szcz`', '{smug')
-    elif message.content.startswith('{sleep'):
+    elif message.content.startswith('{snooze'):
         await asyncio.sleep(5)
-        await client.send_message(message.channel, 'done sleeping')
+        await client.send_message(message.channel, 'done snoozing')
     elif message.content.startswith('{lmdo'):
         await client.send_message(message.channel, 'Lmdo')
     elif message.content.startswith ('{szcz'):
