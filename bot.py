@@ -25,18 +25,22 @@ async def on_message(message):
                 counter += 1
         await client.edit_message(tmp, 'you have {} messages'.format(counter))
     elif message.content.startswith ('{help'):
-        await client.send_message(message.channel, 'commands: `{test`, `{sleep`, `{lmdo`, `{szcz`', '{smug')
+        await client.send_message(message.channel, 'commands: `{test`, `{snooze`, `{lmdo`, `{szcz`, `{smug`, `{sacroni`')
     elif message.content.startswith('{snooze'):
         await asyncio.sleep(5)
         await client.send_message(message.channel, 'done snoozing')
     elif message.content.startswith('{lmdo'):
         await client.send_message(message.channel, 'Lmdo')
     elif message.content.startswith ('{szcz'):
-        szcz = ['szczur', 'szczupak', 'chrząszcz', 'szczecin', 'szczebrzeszyn', 'szczerość', 'szczekać', 'szczęka', "pszczoła", 'oszczędzać', 'płaszcz', 'szczegóły', 'puszcza', 'paszcza', 'chińszczyzna', 'polszczyzna', 'barszcz', 'szczeniak', 'szczep', 'szczyt']
-        await client.send_message(message.channel, random.choice(szcz))
+        szczs = open(dr + "\\szcz.txt", "r")
+        szczlist = szczs.readlines()
+        await client.send_message(message.channel, random.choice(szczlist))
     elif message.content.startswith ('{smug'):
         smug = os.listdir(dr + "\\smug")
         await client.send_file(message.channel, dr + '\\smug\\' + random.choice(smug))
+    elif message.content.startswith ('{sacroni'):
+        sacroni = os.listdir(dr + "\\sacroni")
+        await client.send_file(message.channel, dr + '\\sacroni\\' + random.choice(sacroni))
 
 
 client.run('MjQ4ODc4MTY5NzA3MjQ5Njc0.Cw-J2w.e8ebHynG1fd3WnCV8JSn5O6CPBs')
