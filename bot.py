@@ -37,9 +37,11 @@ async def on_message(message):
         await client.send_message(message.channel, random.choice(szczlist))
     elif message.content.startswith ('{smug'):
         smug = os.listdir(dr + "\\smug")
+        smug.remove('Thumbs.db')
         await client.send_file(message.channel, dr + '\\smug\\' + random.choice(smug))
     elif message.content.startswith ('{sacroni'):
         sacroni = os.listdir(dr + "\\sacroni")
+        sacroni.remove('Thumbs.db')
         await client.send_file(message.channel, dr + '\\sacroni\\' + random.choice(sacroni))
 
 
