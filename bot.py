@@ -25,7 +25,7 @@ async def on_message(message):
                 counter += 1
         await client.edit_message(tmp, 'you have {} messages'.format(counter))
     elif message.content.startswith ('{help'):
-        await client.send_message(message.channel, 'commands: `{test`, `{snooze`, `{lmdo`, `{szcz`, `{smug`, `{sacroni`')
+        await client.send_message(message.channel, 'commands: `{test`, `{snooze`, `{lmdo`, `{szcz`, `{smug`, `{sacroni`, `{say`')
     elif message.content.startswith('{snooze'):
         await asyncio.sleep(5)
         await client.send_message(message.channel, 'done snoozing')
@@ -43,6 +43,13 @@ async def on_message(message):
         sacroni = os.listdir(dr + "\\sacroni")
         sacroni.remove('Thumbs.db')
         await client.send_file(message.channel, dr + '\\sacroni\\' + random.choice(sacroni))
+    elif message.content.startswith ('{say'):
+        say = message.content[len('{say'):].strip()
+        if say != '':
+            if message.author.bot == True:
+                await client.send_message(message.channel, "pwned kiddo")
+            else:
+                await client.send_message(message.channel, say)
 
 
 client.run('MjQ4ODc4MTY5NzA3MjQ5Njc0.Cw-J2w.e8ebHynG1fd3WnCV8JSn5O6CPBs')
