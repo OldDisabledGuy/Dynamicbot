@@ -27,7 +27,7 @@ async def on_message(message):
 					counter += 1
 			await client.edit_message(tmp, 'you have {} messages'.format(counter))
 		elif message.content.startswith ('{help'):
-			await client.send_message(message.channel, 'commands: `{test`, `{snooze`, `{lmdo`, `{szcz`, `{smug`, `{sacroni`, `{say`')
+			await client.send_message(message.channel, 'commands: `{test`, `{snooze`, `{lmdo`, `{szcz`, `{smug`, `{sacroni`, `{proofs`, `{say`')
 		elif message.content.startswith('{snooze'):
 			await asyncio.sleep(5)
 			await client.send_message(message.channel, 'done snoozing')
@@ -45,6 +45,10 @@ async def on_message(message):
 			sacroni = os.listdir(dr + "\\sacroni")
 			sacroni.remove('Thumbs.db')
 			await client.send_file(message.channel, dr + '\\sacroni\\' + random.choice(sacroni))
+		elif message.content.startswith ('{proofs'):
+			proofster = os.listdir(dr + "\\proofster")
+			proofster.remove('Thumbs.db')
+			await client.send_file(message.channel, dr + '\\proofster\\' + random.choice(proofster))
 		elif message.content.startswith ('{say'):
 			say = message.content[len('{say'):].strip()
 			if say != '':
