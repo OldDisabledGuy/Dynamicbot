@@ -70,3 +70,4 @@ async def on_message(message):
 			else:
 				await client.send_message(message.channel, answ.lower())
 				
+client.run('MjQ4ODc4MTY5NzA3MjQ5Njc0.Cw-J2w.e8ebHynG1fd3WnCV8JSn5O6CPBs')
