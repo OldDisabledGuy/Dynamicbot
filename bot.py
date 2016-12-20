@@ -7,15 +7,17 @@ import cleverbot
 client = discord.Client()
 dr = os.getcwd()
 cb = cleverbot.Cleverbot()
+mappaint = ['Crusader Kings II', 'Victoria 2', 'Darkest Hour', 'Hearts of Iron IV', 'SuperPower 2', 'East vs West', 'Stellaris', 'Rome: Total War', 'EVE Online']
 
 @client.event
 async def on_ready():
-    mappaint = ['Crusader Kings II', 'Victoria 2', 'Darkest Hour', 'Hearts of Iron IV', 'SuperPower 2', 'East vs West', 'Stellaris', 'Rome: Total War', 'EVE Online']
-    await client.change_presence(game=discord.Game(name=(random.choice(mappaint))))
-    print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
-    print('------')
+	print('Logged in as')
+	print(client.user.name)
+	print(client.user.id)
+	print('------')
+	while True:
+		await client.change_presence(game=discord.Game(name=(random.choice(mappaint))))
+		await asyncio.sleep(1800)
 
 @client.event
 async def on_member_join(member):
